@@ -8,7 +8,7 @@ const createProfileAction = async (formData: FormData) => {
 	console.log(firstName)
 }
 
-const CreatePage = () => {
+const CreateProfilePage = () => {
 	return (
 		<section>
 			<h1 className='text-2xl font-semibold mb-8 capitalize'>new user</h1>
@@ -27,4 +27,4 @@ const CreatePage = () => {
 	)
 }
 
-export default CreatePage
+export default CreateProfilePage
