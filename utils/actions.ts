@@ -63,3 +63,15 @@ export const fetchProfileImage = async () => {
 	})
 	return profile?.profileImage
 }
+
+export const fetchProfile = async () => {
+	const user = await getAuthUser()
+
+	const profile = await db.profile.findUnique({
+		where: {
+			clerkId: user.id,
+		},
+	})
+	if (!profile) return redirect('/profile/create')
+	return profile
+}
