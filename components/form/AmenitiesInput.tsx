@@ -30,6 +30,7 @@ const AmenitiesInput = ({ defaultValue }: { defaultValue?: Amenity[] }) => {
 				{selectedAmenities.map(amenity => (
 					<div key={amenity.name} className='flex items-center space-x-2'>
 						<Checkbox
+							className='rounded-lg'
 							id={amenity.name}
 							checked={amenity.selected}
 							onCheckedChange={() => handleChange(amenity)}
