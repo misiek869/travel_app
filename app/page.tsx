@@ -1,7 +1,14 @@
+import CategoriesList from '@/components/home/CategoriesList'
+import PropertiesContainer from '@/components/home/PropertiesContainer'
 import React from 'react'
 
 const HomePage = () => {
-	return <h1 className='text-3xl'>HomePage</h1>
+	return (
+		<section>
+			<CategoriesList />
+			<PropertiesContainer />
+		</section>
+	)
 }
 
 export default HomePage
