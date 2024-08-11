@@ -42,4 +42,4 @@ const CreatePropertyPage = () => {
 	)
 }
 
-export default CreatePropertyPages
+export default CreatePropertyPage
