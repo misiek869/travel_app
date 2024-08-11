@@ -29,4 +29,7 @@ const TextAreaInput = ({
 	)
 }
 
+const tempDefaultDescription =
+	'Spending a holiday in a beautiful apartment in Poland is a fantastic way to relax and explore the charms of this country. Poland offers many picturesque locations where you can rent a comfortable apartment, perfect for family vacations or a romantic getaway.'
+
 export default TextAreaInput
