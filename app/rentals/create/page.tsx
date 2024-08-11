@@ -8,6 +8,7 @@ import TextAreaInput from '@/components/form/TextAreaInput'
 import CountriesInput from '@/components/form/CountriesInput'
 import CounterInput from '@/components/form/CounterInput'
 import AmenitiesInput from '@/components/form/AmenitiesInput'
+import ImageInput from '@/components/form/ImageInput'
 
 const CreatePropertyPage = () => {
 	return (
@@ -40,7 +41,7 @@ const CreatePropertyPage = () => {
 					<TextAreaInput name={'description'} />
 					<div className='grid sm:grid-cols-2 gap-8 mt-4'>
 						<CountriesInput />
-						{/* <ImageInput /> */}
+						<ImageInput />
 					</div>
 
 					<h3 className='text-lg mt-8 mb-4 font-medium'>
