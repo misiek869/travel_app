@@ -1,6 +1,6 @@
 import { createClient } from '@supabase/supabase-js'
 
-const bucket = 'travel-app-draft'
+const bucket = 'temp-travel-app'
 
 export const supabase = createClient(
 	process.env.SUPABASE_URL as string,
