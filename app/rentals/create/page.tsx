@@ -4,6 +4,7 @@ import { createPropertyAction } from '@/utils/actions'
 import { SubmitButton } from '@/components/form/Buttons'
 import PriceInput from '@/components/form/PriceInput'
 import CategoriesInput from '@/components/form/CategoriesInput'
+import TextAreaInput from '@/components/form/TextAreaInput'
 
 const CreatePropertyPage = () => {
 	return (
@@ -33,6 +34,7 @@ const CreatePropertyPage = () => {
 						<CategoriesInput />
 					</div>
 					{/* text area / description */}
+					<TextAreaInput name={'description'} />
 					<SubmitButton text='create rental' className='mt-12' />
 				</FormContainer>
 			</div>
@@ -40,4 +42,4 @@ const CreatePropertyPage = () => {
 	)
 }
 
-export default CreatePropertyPage
+export default CreatePropertyPages
