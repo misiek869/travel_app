@@ -115,6 +115,7 @@ export const updateProfileImageAction = async (
 	formData: FormData
 ): Promise<{ message: string }> => {
 	const user = await getAuthUser()
+
 	try {
 		const image = formData.get('image') as File
 		const validatedFields = validateWithZodSchema(imageSchema, { image })
@@ -152,7 +153,6 @@ export const createPropertyAction = async (
 			data: {
 				...validatedFields,
 				image: fullPath,
-
 				profileId: user.id,
 			},
 		})
