@@ -12,7 +12,7 @@ const ImageInput = () => {
 				id={name}
 				name={name}
 				type='file'
-				required
+				// required
 				accept='image/*'
 				className='max-w-xs'
 			/>
