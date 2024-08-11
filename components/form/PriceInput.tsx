@@ -2,13 +2,14 @@ import { Label } from '../ui/label'
 import { Input } from '../ui/input'
 import { Prisma } from '@prisma/client'
 
-const name = Prisma.PropertyScalarFieldEnum.price
-// const name = 'price';
+// const name = Prisma.PropertyScalarFieldEnum.price
+
 type FormInputNumberProps = {
 	defaultValue?: number
 }
 
 const PriceInput = ({ defaultValue }: FormInputNumberProps) => {
+	const name = 'price'
 	return (
 		<div className='mb-2'>
 			<Label htmlFor='price' className='capitalize'>
