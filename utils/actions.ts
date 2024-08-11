@@ -143,8 +143,9 @@ export const createPropertyAction = async (
 	try {
 		const rawData = Object.fromEntries(formData)
 		const validatedFields = validateWithZodSchema(propertySchema, rawData)
+		return { message: 'created' }
 	} catch (error) {
 		return renderError(error)
 	}
-	redirect('/')
+	// redirect('/')
 }
