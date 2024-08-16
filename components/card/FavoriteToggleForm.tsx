@@ -1,7 +1,12 @@
-import React from 'react'
+import { FaHeart } from 'react-icons/fa'
+import { Button } from '@/components/ui/button'
 
-const FavoriteToggleForm = () => {
-	return <div>FavoriteToggleForm</div>
+const FavoriteToggleForm = ({ propertyId }: { propertyId: string }) => {
+	return (
+		<Button size='icon' variant='outline' className='p-2 cursor-pointer'>
+			<FaHeart />
+		</Button>
+	)
 }
 
 export default FavoriteToggleForm
