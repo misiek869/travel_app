@@ -194,6 +194,7 @@ export const fetchFavoriteId = async ({
 	propertyId: string
 }) => {
 	const user = await getAuthUser()
+
 	const favorite = await db.favorite.findFirst({
 		where: {
 			propertyId,
