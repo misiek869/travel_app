@@ -3,6 +3,7 @@ import { fetchPropertyDetails } from '@/utils/actions'
 import { redirect } from 'next/navigation'
 import FavoriteToggleButton from '@/components/card/FavoriteToggleButton'
 import ShareButton from '@/components/properties/ShareButton'
+import ImageContainer from '@/components/properties/ImageContainer'
 
 const PropertyDetailsPage = async ({ params }: { params: { id: string } }) => {
 	const property = await fetchPropertyDetails(params.id)
@@ -20,6 +21,7 @@ const PropertyDetailsPage = async ({ params }: { params: { id: string } }) => {
 					<FavoriteToggleButton propertyId={property.id} />
 				</div>
 			</header>
+			<ImageContainer mainImage={property.image} name={property.name} />
 		</section>
 	)
 }
