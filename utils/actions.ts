@@ -264,7 +264,7 @@ export const fetchFavorites = async () => {
 export const fetchPropertyDetails = (id: string) => {
 	return db.property.findUnique({
 		where: {
-			id,
+			id: id,
 		},
 		include: {
 			profile: true,
