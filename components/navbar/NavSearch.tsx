@@ -20,7 +20,11 @@ const NavSearch = () => {
 		} else {
 			params.delete('search')
 		}
-		replace(`${pathname}?${params.toString()}`)
+		// eith pathName
+		// replace(`${pathname}?${params.toString()}`)
+
+		// without pathName
+		replace(`/?${params.toString()}`)
 	}, 300)
 
 	useEffect(() => {
