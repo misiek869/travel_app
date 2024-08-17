@@ -8,6 +8,7 @@ import PropertyRating from '@/components/card/PropertyRating'
 import BookingCalendar from '@/components/properties/booking/BookingCalendar'
 import PropertyDetails from '@/components/properties/PropertyDetails'
 import UserInfo from '@/components/properties/UserInfo'
+import Description from '@/components/properties/Description'
 
 const PropertyDetailsPage = async ({ params }: { params: { id: string } }) => {
 	const property = await fetchPropertyDetails(params.id)
@@ -36,6 +37,7 @@ const PropertyDetailsPage = async ({ params }: { params: { id: string } }) => {
 					</div>
 					<PropertyDetails details={details} />
 					<UserInfo profile={{ firstName, profileImage }} />
+					<Description description={property.description} />
 				</div>
 				<div className='lg:col-span-4 flex flex-col items-center'>
 					<BookingCalendar />
