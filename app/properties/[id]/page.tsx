@@ -40,6 +40,14 @@ const PropertyDetailsPage = async ({ params }: { params: { id: string } }) => {
 	const reviewDoesNotExist =
 		userId && isNotOwner && !(await findExistingReview(userId, property.id))
 
+	const DynamicBookingWrapper = dynamic(
+		() => import('@/components/booking/BookingWrapper'),
+		{
+			ssr: false,
+			loading: () => <Skeleton className='h-[200px] w-full' />,
+		}
+	)
+
 	return (
 		<section>
 			<BreadCrumbs name={property.name} />
@@ -64,7 +72,12 @@ const PropertyDetailsPage = async ({ params }: { params: { id: string } }) => {
 					<DynamicMap countryCode={property.country} />
 				</div>
 				<div className='lg:col-span-4 flex flex-col items-center'>
-					<BookingCalendar />
+					{/* calendar */}
+					<DynamicBookingWrapper
+						propertyId={property.id}
+						price={property.price}
+						bookings={property.bookings}
+					/>
 				</div>
 			</section>
 			{reviewDoesNotExist && <SubmitReview propertyId={property.id} />}
