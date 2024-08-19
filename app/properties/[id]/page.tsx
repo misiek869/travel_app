@@ -25,6 +25,8 @@ const PropertyDetailsPage = async ({ params }: { params: { id: string } }) => {
 	const firstName = property.profile.firstName
 	const profileImage = property.profile.profileImage
 
+	console.log('booking:', property.bookings)
+
 	const DynamicMap = dynamic(
 		() => import('@/components/properties/PropertyMap'),
 		{

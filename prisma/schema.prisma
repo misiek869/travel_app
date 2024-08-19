@@ -56,8 +56,8 @@ model Property {
   profile     Profile    @relation(fields: [profileId], references: [clerkId], onDelete: Cascade)
   profileId   String
   favorites    Favorite[]
-   reviews Review[]
-     bookings Booking[]
+  reviews Review[]
+  bookings Booking[]
 }
 
 model Review {
