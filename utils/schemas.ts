@@ -14,6 +14,19 @@ export const profileSchema = z.object({
 		.min(2, { message: 'Username must be at least 2 characters' }),
 })
 
+function validateFile() {
+	const maxUploadSize = 1024 * 1024
+	const acceptedFileTypes = ['image/']
+	return z
+		.instanceof(File)
+		.refine(file => {
+			return !file || file.size <= maxUploadSize
+		}, `File size must be less than 1 MB`)
+		.refine(file => {
+			return !file || acceptedFileTypes.some(type => file.type.startsWith(type))
+		}, 'File must be an image')
+}
+
 export function validateWithZodSchema<T>(
 	schema: ZodSchema<T>,
 	data: unknown
@@ -31,18 +44,7 @@ export const imageSchema = z.object({
 	image: validateFile(),
 })
 
-function validateFile() {
-	const maxUploadSize = 1024 * 1024
-	const acceptedFileTypes = ['image/']
-	return z
-		.instanceof(File)
-		.refine(file => {
-			return !file || file.size <= maxUploadSize
-		}, `File size must be less than 1 MB`)
-		.refine(file => {
-			return !file || acceptedFileTypes.some(type => file.type.startsWith(type))
-		}, 'File must be an image')
-}
+
 
 export const propertySchema = z.object({
 	name: z
@@ -88,4 +90,10 @@ export const propertySchema = z.object({
 		message: 'bahts amount must be a positive number.',
 	}),
 	amenities: z.string(),
+})
+
+export const createReviewSchema = z.object({
+	propertyId: z.string(),
+	rating: z.coerce.number().int().min(1).max(5),
+	comment: z.string().min(10).max(1000),
 })
