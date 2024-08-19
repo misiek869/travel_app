@@ -269,6 +269,12 @@ export const fetchPropertyDetails = (id: string) => {
 		},
 		include: {
 			profile: true,
+			bookings: {
+				select: {
+					checkIn: true,
+					checkOut: true,
+				},
+			},
 		},
 	})
 }
@@ -370,7 +376,7 @@ export async function fetchPropertyRating(propertyId: string) {
 		},
 	})
 
-	// empty array if no reviews
+	// empty array if there is no reviews
 	return {
 		rating: result[0]?._avg.rating?.toFixed(1) ?? 0,
 		count: result[0]?._count.rating ?? 0,
