@@ -9,7 +9,7 @@ import {
 	// generateDisabledDates,
 	// generateDateRange,
 	defaultSelected,
-	// generateBlockedPeriods,
+	generateBlockedPeriods,
 } from '@/utils/calendar'
 
 const BookingCalendar = () => {
@@ -34,6 +34,7 @@ const BookingCalendar = () => {
 			selected={range}
 			onSelect={setRange}
 			className='mb-4'
+			disabled={blockedPeriods}
 		/>
 	)
 }
