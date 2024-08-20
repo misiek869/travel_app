@@ -43,3 +43,32 @@ export const generateBlockedPeriods = ({
 	]
 	return disabledDays
 }
+
+export const generateDisabledDates = (
+	disabledDays: DateRange[]
+): { [key: string]: boolean } => {
+	if (disabledDays.length === 0) return {}
+
+	const disabledDates: { [key: string]: boolean } = {}
+	const today = new Date()
+	today.setHours(0, 0, 0, 0) // set time to 00:00:00 to compare only the date part
+
+	disabledDays.forEach(range => {
+		if (!range.from || !range.to) return
+
+		let currentDate = new Date(range.from)
+		const endDate = new Date(range.to)
+
+		while (currentDate <= endDate) {
+			if (currentDate < today) {
+				currentDate.setDate(currentDate.getDate() + 1)
+				continue
+			}
+			const dateString = currentDate.toISOString().split('T')[0]
+			disabledDates[dateString] = true
+			currentDate.setDate(currentDate.getDate() + 1)
+		}
+	})
+
+	return disabledDates
+}
