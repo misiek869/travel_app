@@ -72,3 +72,19 @@ export const generateDisabledDates = (
 
 	return disabledDates
 }
+
+export const generateDateRange = (range: DateRange | undefined): string[] => {
+	if (!range || !range.from || !range.to) return []
+
+	let currentDate = new Date(range.from)
+	const endDate = new Date(range.to)
+	const dateRange: string[] = []
+
+	while (currentDate <= endDate) {
+		const dateString = currentDate.toISOString().split('T')[0]
+		dateRange.push(dateString)
+		currentDate.setDate(currentDate.getDate() + 1)
+	}
+
+	return dateRange
+}

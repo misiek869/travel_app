@@ -6,7 +6,7 @@ import { DateRange } from 'react-day-picker'
 import { useProperty } from '@/utils/store'
 
 import {
-	// generateDisabledDates,
+	generateDisabledDates,
 	// generateDateRange,
 	defaultSelected,
 	generateBlockedPeriods,
@@ -22,6 +22,9 @@ const BookingCalendar = () => {
 		bookings,
 		today: currentDate,
 	})
+
+	const { toast } = useToast()
+	const unavailableDates = generateDisabledDates(blockedPeriods)
 
 	useEffect(() => {
 		useProperty.setState({ range })
