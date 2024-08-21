@@ -643,3 +643,17 @@ export const fetchReservations = async () => {
 	
 	return reservations
 }
+
+export const fetchStats = async () => {
+	await getAdminUser()
+
+	const usersCount = await db.profile.count()
+	const propertiesCount = await db.property.count()
+	const bookingsCount = await db.booking.count()
+
+	return {
+		usersCount,
+		propertiesCount,
+		bookingsCount,
+	}
+}
