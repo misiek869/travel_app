@@ -412,7 +412,7 @@ export const createBookingAction = async (prevState: {
 	if (!property) {
 		return { message: 'Property not found' }
 	}
-	
+
 	const { orderTotal, totalNights } = calculateTotals({
 		checkIn,
 		checkOut,
@@ -434,4 +434,27 @@ export const createBookingAction = async (prevState: {
 		return renderError(error)
 	}
 	redirect('/bookings')
+}
+
+export const fetchBookings = async () => {
+	const user = await getAuthUser()
+	
+	const bookings = await db.booking.findMany({
+		where: {
+			profileId: user.id,
+		},
+		include: {
+			property: {
+				select: {
+					id: true,
+					name: true,
+					country: true,
+				},
+			},
+		},
+		orderBy: {
+			checkIn: 'desc',
+		},
+	})
+	return bookings
 }
