@@ -1,7 +1,8 @@
-import React from 'react'
+'use client'
 
+import LoadingTable from '@/components/booking/LoadingTable'
 const loading = () => {
-	return <div></div>
+	return <LoadingTable />
 }
 
 export default loading
