@@ -410,6 +410,13 @@ export const createBookingAction = async (prevState: {
 }) => {
 	const user = await getAuthUser()
 	
+	await db.booking.deleteMany({
+		where: {
+		  profileId: user.id,
+		  paymentStatus: false,
+		},
+	  });
+
 	let bookingId: null | string = null;
 
 	const { propertyId, checkIn, checkOut } = prevState
